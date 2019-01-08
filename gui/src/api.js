@@ -132,3 +132,5 @@ export const bulkDeleteJobRuns = (status, updatedBefore) => post(
     updatedBefore: updatedBefore
   }
 )
+
+export const getTransactions = () => get(`/v2/txattempts`)
