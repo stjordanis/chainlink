@@ -8,6 +8,7 @@ import Card from '@material-ui/core/Card'
 import PaddedCard from 'components/PaddedCard'
 import JobRunsList from 'components/JobRuns/List'
 import Link from 'components/Link'
+import KeyValueList from 'components/KeyValueList'
 import Content from 'components/Content'
 import RegionalNav from 'components/Jobs/RegionalNav'
 import TimeAgo from 'components/TimeAgo'
@@ -32,40 +33,12 @@ const styles = theme => ({
 })
 
 const renderJobSpec = ({ job }) => {
-  return (
-    <PaddedCard>
-      <Grid container spacing={0}>
-        <Grid item xs={12}>
-          <Typography variant='subtitle1' color='textSecondary'>ID</Typography>
-          <Typography variant='body1' color='inherit'>
-            {job.id}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant='subtitle1' color='textSecondary'>Created</Typography>
-          <Typography variant='body1' color='inherit'>
-            <TimeAgo>{job.createdAt}</TimeAgo>
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container spacing={0}>
-            <Grid item xs={6}>
-              <Typography variant='subtitle1' color='textSecondary'>Initiator</Typography>
-              <Typography variant='body1' color='inherit'>
-                {formatInitiators(job.initiators)}
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant='subtitle1' color='textSecondary'>Run Count</Typography>
-              <Typography variant='body1' color='inherit'>
-                {job.runs && job.runs.length}
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </PaddedCard>
-  )
+  const info = {
+    runCount: job.runs && job.runs.length,
+    initiator: formatInitiators(job.initiators)
+  }
+
+  return <KeyValueList entries={Object.entries(info)} />
 }
 
 const renderLatestRuns = ({ job, classes, latestJobRuns, showJobRunsCount }) => (
