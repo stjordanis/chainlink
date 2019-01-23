@@ -44,7 +44,7 @@ const RecentlyCreated = ({ jobs }) => {
               <Grid item xs={12}>
                 <Link to={`/jobs/${j.id}`}>
                   <Typography variant='body1' component='span' color='primary'>
-                    {j.id}
+                    @{j.id}
                   </Typography>
                 </Link>
               </Grid>
