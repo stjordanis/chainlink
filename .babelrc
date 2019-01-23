@@ -1,4 +1,9 @@
 {
   "extends": "react-static/.babelrc",
-  "presets": ["stage-2"]
+  "presets": [
+    "stage-2",
+    "@babel/react",
+    "@babel/typescript",
+    ["@babel/env", { "modules": false }]
+  ]
 }

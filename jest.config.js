@@ -10,6 +10,13 @@ module.exports = {
     '<rootDir>/gui/tmp/',
     '<rootDir>/node_modules/'
   ],
+  moduleFileExtensions: [
+    'ts',
+    'tsx',
+    'js',
+    'jsx',
+    'json'
+  ],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': '<rootDir>/gui/__mocks__/styleMock.js'
   }
