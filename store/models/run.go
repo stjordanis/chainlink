@@ -284,6 +284,10 @@ func (rr RunResult) GetError() error {
 	return nil
 }
 
+func (rr RunResult) String() string {
+	return fmt.Sprintf(`Result{ID: %d, Data: "%s"}`, rr.ID, rr.Data)
+}
+
 // Merge returns a copy which is the result of joining the input RunResult
 // with the instance it is called on, preferring the RunResult results passed in,
 // but using the existing results if the input RunResult results are of their
